@@ -4,8 +4,21 @@ A command-line tool for converting between TypeID and UUID formats.
 
 ## Installation
 
+### From GitHub (Recommended)
 ```bash
-pip install -e .
+pipx install git+https://github.com/delputnam/typeid-cli.git
+```
+
+### From Source
+```bash
+git clone https://github.com/delputnam/typeid-cli.git
+cd typeid-cli
+pipx install .
+```
+
+### Alternative (pip)
+```bash
+pip install --user git+https://github.com/delputnam/typeid-cli.git
 ```
 
 ## Usage
