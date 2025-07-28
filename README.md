@@ -1,6 +1,6 @@
 # TypeID CLI
 
-A command-line tool for converting between TypeID and UUID formats.
+A command-line tool for generating TypeIDs and converting between TypeID and UUID formats.
 
 ## Installation
 
@@ -23,7 +23,17 @@ pip install --user git+https://github.com/delputnam/typeid-cli.git
 
 ## Usage
 
-The CLI provides four conversion commands:
+The CLI provides five commands:
+
+### Generate a new TypeID
+```bash
+typeid generate user
+```
+Output:
+```
+typeid: user_01k18q5gpffnjv13z28k6z7t7c
+uuid: 01985172-c2cf-7d65-b08f-e244cdf3e8ec
+```
 
 ### Convert TypeID to UUID
 ```bash

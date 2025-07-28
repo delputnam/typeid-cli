@@ -2,7 +2,13 @@
 
 import sys
 
-from .id_utils import hex_to_typeid, hex_to_uuid7, typeid_to_uuid7, uuid7_to_typeid
+from .id_utils import (
+    generate_new_typeid,
+    hex_to_typeid,
+    hex_to_uuid7,
+    typeid_to_uuid7,
+    uuid7_to_typeid,
+)
 
 
 class TypeIDCommands:
@@ -44,6 +50,17 @@ class TypeIDCommands:
         try:
             uuid_result = hex_to_uuid7(hex_str)
             print(uuid_result)
+        except ValueError as e:
+            print(f"Error: {e}", file=sys.stderr)
+            sys.exit(1)
+
+    @staticmethod
+    def generate_typeid(prefix: str) -> None:
+        """Generate a new TypeID with the given prefix."""
+        try:
+            typeid_result, uuid_result = generate_new_typeid(prefix)
+            print(f"typeid: {typeid_result}")
+            print(f"uuid: {uuid_result}")
         except ValueError as e:
             print(f"Error: {e}", file=sys.stderr)
             sys.exit(1)

@@ -9,7 +9,6 @@ from .commands import TypeIDCommands
 @click.version_option()
 def cli() -> None:
     """CLI tool for TypeID and UUID conversions."""
-    pass
 
 
 @cli.command("typeid-to-uuid")
@@ -40,6 +39,13 @@ def hex_to_typeid(hex_value: str, prefix: str) -> None:
 def hex_to_uuid(hex_value: str) -> None:
     """Convert hexadecimal representation to UUID7 format."""
     TypeIDCommands.convert_hex_to_uuid(hex_value)
+
+
+@cli.command("generate")
+@click.argument("prefix")
+def generate(prefix: str) -> None:
+    """Generate a new TypeID with the given prefix."""
+    TypeIDCommands.generate_typeid(prefix)
 
 
 if __name__ == "__main__":
