@@ -63,8 +63,7 @@ def hex_to_typeid(hex_str: str, prefix: str) -> str:
         ValueError: If the hex format is invalid
     """
     try:
-        if hex_str.startswith("0x"):
-            hex_str = hex_str[2:]
+        hex_str = hex_str.removeprefix("0x")
 
         if len(hex_str) != 32:
             raise ValueError(f"Hex string must be exactly 32 characters (128 bits), got {len(hex_str)}")
@@ -91,8 +90,7 @@ def hex_to_uuid7(hex_str: str) -> str:
         ValueError: If the hex format is invalid
     """
     try:
-        if hex_str.startswith("0x"):
-            hex_str = hex_str[2:]
+        hex_str = hex_str.removeprefix("0x")
 
         if len(hex_str) != 32:
             raise ValueError(f"Hex string must be exactly 32 characters (128 bits), got {len(hex_str)}")
@@ -102,3 +100,23 @@ def hex_to_uuid7(hex_str: str) -> str:
         return str(uuid_obj)
     except Exception as e:
         raise ValueError(f"Failed to convert hex '{hex_str}' to UUID: {e}")
+
+
+def generate_new_typeid(prefix: str) -> tuple[str, str]:
+    """
+    Generate a new TypeID with the given prefix.
+
+    Args:
+        prefix: TypeID prefix like 'user' or 'contact'
+
+    Returns:
+        Tuple of (typeid_string, uuid_string)
+
+    Raises:
+        ValueError: If the prefix is invalid
+    """
+    try:
+        typeid = TypeID(prefix=prefix)
+        return str(typeid), str(typeid.uuid)
+    except Exception as e:
+        raise ValueError(f"Failed to generate TypeID with prefix '{prefix}': {e}")
