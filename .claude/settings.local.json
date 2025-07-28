@@ -7,7 +7,14 @@
       "Bash(source:*)",
       "Bash(typeid:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(gh repo create:*)",
+      "Bash(pipx install:*)",
+      "Bash(brew install:*)",
+      "Bash(git push:*)",
+      "Bash(git rm:*)",
+      "Bash(rm:*)"
     ],
     "deny": []
   }
